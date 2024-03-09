@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="приложение.korzina">
+    <ContentPage.Content>
+        <Grid BackgroundColor="Black">
+            <ListView x:Name="detailsListView" HasUnevenRows="True" BackgroundColor="Black">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Grid BackgroundColor="White" Margin="10">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="Auto" />
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                </Grid.RowDefinitions>
+                                <Label Text="Почта заказчика: " FontSize="16" TextColor="Black" Grid.Row="0" Grid.Column="0" />
+                                <Label Text="{Binding mail}" FontSize="18" TextColor="Black" Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="2" />
+                                <Label Text=" Марка авто: " FontSize="16" TextColor="Black" Grid.Row="1" Grid.Column="0" />
+                                <Label Text="{Binding Car_make}" FontSize="18" TextColor="Black" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2" />
+                                <Label Text=" Товар: " FontSize="16" TextColor="Black" Grid.Row="2" Grid.Column="0" />
+                                <Label Text="{Binding Detail_name}" FontSize="18" TextColor="Black" Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="2" />
+                                <ImageButton Clicked="Delete_Click" Source="delete.png" BackgroundColor="Transparent" WidthRequest="40" HeightRequest="40" Grid.Row="0" Grid.Column="2" Grid.RowSpan="3" Grid.ColumnSpan="1" HorizontalOptions="End" VerticalOptions="Start"/>
+                                <Label Text="Ожидает по адресу:  " FontSize="16" TextColor="Black" Grid.Row="4" Grid.Column="0" />
+                                <Label Text="г. Орехово-Зуево  ул. Ленина,78" FontSize="16" TextColor="Black" Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="2" />
+                            </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </Grid>
+    </ContentPage.Content>
+    </ContentPage>

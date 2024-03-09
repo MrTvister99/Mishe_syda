@@ -1,0 +1,108 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="приложение.Page.Page3"
+              NavigationPage.HasNavigationBar="False">
+    <ContentPage.Content>
+        <RelativeLayout>
+            
+            <ScrollView RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height}" RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width}">
+                <Grid>
+                   
+                    <Image Source="dviga.jpg" Aspect="AspectFill" />
+                <StackLayout Spacing="40" Padding="20">
+                    <Label Text="Выберите марку авто" HorizontalOptions="Center" FontSize="24" TextColor="DarkGray" />
+                    <BoxView HeightRequest="2" BackgroundColor="Gray" />
+
+                    <!-- Общий Grid для всех панелей -->
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="130" />
+                            <RowDefinition Height="130" />
+                            <RowDefinition Height="130" />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+
+                        <!-- Панель 1 -->
+                        <Frame Grid.Row="0" Grid.Column="0"  BackgroundColor="LightGray" BorderColor="#FF0000"  Padding="10" CornerRadius="10">
+                            <Image Source="Vol.png" Aspect="AspectFill" HeightRequest="120" WidthRequest="90">
+                                <Image.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="Panel1Tapped" />
+                                </Image.GestureRecognizers>
+                            </Image>
+                        </Frame>
+
+
+                        <!-- Панель 2 -->
+                        <Frame Grid.Row="0" Grid.Column="1"  BackgroundColor="LightGray" BorderColor="#FF0000"  Padding="10" CornerRadius="10">
+                            <Image Source="chary.png" Aspect="AspectFill" HeightRequest="120" WidthRequest="90">
+                                <Image.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="Panel2Tapped" />
+                                </Image.GestureRecognizers>
+                            </Image>
+                        </Frame>
+
+                        <!-- Панель 3 -->
+                        <Frame Grid.Row="1" Grid.Column="0"  BackgroundColor="LightGray" BorderColor="#FF0000"  Padding="10" CornerRadius="10">
+                            <Image Source="new_lada.png" Aspect="AspectFill" HeightRequest="120" WidthRequest="90">
+                                <Image.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="Panel3Tapped" />
+                                </Image.GestureRecognizers>
+                            </Image>
+                        </Frame>
+                        <Frame Grid.Row="1" Grid.Column="1"  BackgroundColor="LightGray" BorderColor="#FF0000"  Padding="10" CornerRadius="10">
+                            <Image Source="nisan.png" Aspect="AspectFill" HeightRequest="120" WidthRequest="90">
+                                <Image.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="Panel4Tapped" />
+                                </Image.GestureRecognizers>
+                            </Image>
+                        </Frame>
+                        <Frame Grid.Row="2" Grid.Column="0"  BackgroundColor="LightGray" BorderColor="#FF0000"  Padding="10" CornerRadius="10">
+                            <Image Source="mers.png" Aspect="AspectFill" HeightRequest="120" WidthRequest="90">
+                                <Image.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="Panel5Tapped" />
+                                </Image.GestureRecognizers>
+                            </Image>
+                        </Frame>
+                        <Frame Grid.Row="2" Grid.Column="1"  BackgroundColor="LightGray" BorderColor="#FF0000"  Padding="10" CornerRadius="10">
+                            <Image Source="bmv.png" Aspect="AspectFill" HeightRequest="120" WidthRequest="90">
+                                <Image.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="Panel6Tapped" />
+                                </Image.GestureRecognizers>
+                            </Image>
+                            
+                        </Frame>
+                           
+
+
+
+                        </Grid>
+                       
+                    </StackLayout>
+                    <Grid BackgroundColor="Yellow" VerticalOptions="End">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            
+                        </Grid.ColumnDefinitions>
+
+                        <Button  Grid.Column="0" HeightRequest="80" Background="Yellow" ImageSource="menu1.png" HorizontalOptions="FillAndExpand" Clicked="GoToThisPage_Clicked" />
+                        <Button  Grid.Column="1" HeightRequest="80" Background="Yellow"  HorizontalOptions="FillAndExpand" Clicked="GoToCart_Clicked" ImageSource="korzina1.png"/>
+                    </Grid>
+                </Grid>
+        </ScrollView>
+            
+                <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" VerticalOptions="End">
+               
+            </StackLayout>
+            
+        </RelativeLayout>
+
+
+
+
+    </ContentPage.Content>
+</ContentPage>
