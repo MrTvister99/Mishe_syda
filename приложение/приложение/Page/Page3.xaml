@@ -20,13 +20,14 @@
                             <RowDefinition Height="130" />
                             <RowDefinition Height="130" />
                             <RowDefinition Height="130" />
-                        </Grid.RowDefinitions>
+                            <RowDefinition Height="130" />
+                            </Grid.RowDefinitions>
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="*" />
                             <ColumnDefinition Width="*" />
                         </Grid.ColumnDefinitions>
 
-                        <!-- Панель 1 -->
+                       
                         <Frame Grid.Row="0" Grid.Column="0"  BackgroundColor="LightGray" BorderColor="#FF0000"  Padding="10" CornerRadius="10">
                             <Image Source="Vol.png" Aspect="AspectFill" HeightRequest="120" WidthRequest="90">
                                 <Image.GestureRecognizers>
@@ -36,7 +37,7 @@
                         </Frame>
 
 
-                        <!-- Панель 2 -->
+                       
                         <Frame Grid.Row="0" Grid.Column="1"  BackgroundColor="LightGray" BorderColor="#FF0000"  Padding="10" CornerRadius="10">
                             <Image Source="chary.png" Aspect="AspectFill" HeightRequest="120" WidthRequest="90">
                                 <Image.GestureRecognizers>
@@ -45,7 +46,7 @@
                             </Image>
                         </Frame>
 
-                        <!-- Панель 3 -->
+                      
                         <Frame Grid.Row="1" Grid.Column="0"  BackgroundColor="LightGray" BorderColor="#FF0000"  Padding="10" CornerRadius="10">
                             <Image Source="new_lada.png" Aspect="AspectFill" HeightRequest="120" WidthRequest="90">
                                 <Image.GestureRecognizers>
@@ -75,7 +76,23 @@
                             </Image>
                             
                         </Frame>
-                           
+
+                            <Frame Grid.Row="3" Grid.Column="0"  BackgroundColor="LightGray" BorderColor="#FF0000"  Padding="10" CornerRadius="10">
+                                <Image Source="mit.png" Aspect="AspectFill" HeightRequest="120" WidthRequest="90">
+                                    <Image.GestureRecognizers>
+                                        <TapGestureRecognizer Tapped="Panel7Tapped" />
+                                    </Image.GestureRecognizers>
+                                </Image>
+
+                            </Frame>
+                            <Frame Grid.Row="3" Grid.Column="1"  BackgroundColor="LightGray" BorderColor="#FF0000"  Padding="10" CornerRadius="10">
+                                <Image Source="sub.png" Aspect="AspectFill" HeightRequest="120" WidthRequest="90">
+                                    <Image.GestureRecognizers>
+                                        <TapGestureRecognizer Tapped="Panel8Tapped" />
+                                    </Image.GestureRecognizers>
+                                </Image>
+
+                            </Frame>
 
 
 

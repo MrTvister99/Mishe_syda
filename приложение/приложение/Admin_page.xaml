@@ -5,27 +5,35 @@
     <ContentPage.Content>
         <Grid BackgroundColor="Black">
             <ListView x:Name="detailsListView" HasUnevenRows="True" BackgroundColor="Black">
-            <ListView.ItemTemplate>
-                <DataTemplate>
-                    <ViewCell>
-                            <StackLayout Orientation="Vertical" BackgroundColor="White" Margin="10">
-                            <StackLayout Orientation="Horizontal">
-                                    <Label Text="Почта заказчика: " FontSize="16" TextColor="Black" />
-                                <Label Text="{Binding mail}" FontSize="18" TextColor="Black"/>
-                            </StackLayout>
-                            <StackLayout Orientation="Horizontal">
-                                    <Label Text=" Марка авто: " FontSize="16" TextColor="Black" />
-                                <Label Text="{Binding Car_make}" FontSize="18" TextColor="Black"/>
-                            </StackLayout>
-                            <StackLayout Orientation="Horizontal">
-                                <Label Text=" Товар: " FontSize="16" TextColor="Black" />
-                                <Label Text="{Binding Detail_name}" FontSize="18" TextColor="Black"/>
-                            </StackLayout>
-                        </StackLayout>
-                    </ViewCell>
-                </DataTemplate>
-            </ListView.ItemTemplate>
-        </ListView>
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Grid BackgroundColor="White" Margin="10">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="Auto" />
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                </Grid.RowDefinitions>
+                                <Label Text="Почта заказчика: " FontSize="16" TextColor="Black" Grid.Row="0" Grid.Column="0" />
+                                <Label Text="{Binding mail}" FontSize="18" TextColor="Black" Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="2" />
+                                <Label Text=" Марка авто: " FontSize="16" TextColor="Black" Grid.Row="1" Grid.Column="0" />
+                                <Label Text="{Binding Car_make}" FontSize="18" TextColor="Black" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2" />
+                                <Label Text=" Товар: " FontSize="16" TextColor="Black" Grid.Row="2" Grid.Column="0" />
+                                <Label Text="{Binding Detail_name}" FontSize="18" TextColor="Black" Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="2" />
+                                <ImageButton Clicked="Delete_Click" Source="musr.png" BackgroundColor="Transparent" WidthRequest="40" HeightRequest="40" Grid.Row="0" Grid.Column="2" Grid.RowSpan="3" Grid.ColumnSpan="1" HorizontalOptions="End" VerticalOptions="Start"/>
+                                
+                            </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
         </Grid>
     </ContentPage.Content>
 </ContentPage>

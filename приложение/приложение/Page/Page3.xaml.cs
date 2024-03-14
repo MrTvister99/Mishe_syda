@@ -66,5 +66,18 @@ namespace приложение.Page
         {
             Navigation.PushModalAsync(new korzina());
         }
+
+        private void Panel7Tapped(object sender, EventArgs e)
+        {
+
+            Name = "Mitsubishi";
+            Navigation.PushModalAsync(new auto());
+        }
+
+        private void Panel8Tapped(object sender, EventArgs e)
+        {
+            Name = "Subaru";
+            Navigation.PushModalAsync(new auto());
+        }
     }
 }

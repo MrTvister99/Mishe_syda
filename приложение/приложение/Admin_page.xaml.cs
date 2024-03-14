@@ -28,8 +28,8 @@ namespace приложение
             details = new ObservableCollection<Detail>();
             detailsListView.ItemsSource = details;
             FetchDataFromFirebase();
-             
-            }
+
+        }
         private async void FetchDataFromFirebase()
         {
             var firebaseClient = new FirebaseClient("https://coursework-d0ee6-default-rtdb.firebaseio.com/");
@@ -46,7 +46,7 @@ namespace приложение
             foreach (var item in items)
             {
                 var detail = item.Object;
-                detail.mail = item.Key; 
+                detail.mail = item.Key;
 
 
                 var nestedItems = await firebaseClient
@@ -68,7 +68,7 @@ namespace приложение
                 foreach (var nestedItem in nestedItems)
                 {
                     var nestedDetail = nestedItem.Object;
-                    nestedDetail.mail = detail.mail; 
+                    nestedDetail.mail = detail.mail;
                     details.Add(nestedDetail);
                 }
             }
@@ -79,11 +79,84 @@ namespace приложение
             public string mail { get; set; }
             public string Detail_name { get; set; }
             public string Car_make { get; set; }
-            
+
+        }
+
+        private async void Delete_Click(object sender, EventArgs e)
+        {
+            var imageButton = (ImageButton)sender;
+            var item = (Detail)imageButton.BindingContext;
+            int Index = item.mail.IndexOf('@');
+            bool answer = await DisplayAlert("Подтверждение", "Вы уверены, что хотите удалить этот заказ?", "Да", "Нет");
+            if (item.mail.Contains("ru") && Index < item.mail.IndexOf("ru"))
+            {
+                item.mail = item.mail.Replace("ru", ".ru");
+            }
+            else if (item.mail.Contains("com") && Index < item.mail.IndexOf("com"))
+            {
+                item.mail = item.mail.Replace("com", ".com");
+            }
+
+            var firebaseClient = new FirebaseClient("https://coursework-d0ee6-default-rtdb.firebaseio.com/");
+            var toDeleteItem = (from detail in details
+                                where detail.mail == item.mail && detail.Detail_name == item.Detail_name && detail.Car_make == item.Car_make
+                                select detail).FirstOrDefault();
+
+            if (toDeleteItem != null)
+            {
+                int atIndex = toDeleteItem.mail.IndexOf('@');
+                if (toDeleteItem.mail.Contains("ru") && atIndex < toDeleteItem.mail.IndexOf("ru"))
+                {
+                    toDeleteItem.mail = toDeleteItem.mail.Replace(".ru", "ru");
+                }
+                else if (toDeleteItem.mail.Contains("com") && atIndex < toDeleteItem.mail.IndexOf("com"))
+                {
+                    toDeleteItem.mail = toDeleteItem.mail.Replace(".com", "com");
+                }
+                var detailsSnapshot = await firebaseClient
+            .Child("Details")
+            .Child(toDeleteItem.mail.Replace(".", ""))
+            .OnceAsync<Detail>();
+
+                foreach (var detailSnapshot in detailsSnapshot)
+                {
+                    var detail = detailSnapshot.Object;
+                    if (detail.Detail_name == item.Detail_name && detail.Car_make == item.Car_make)
+                    {
+                        // Удаляем деталь из Firebase
+                        await firebaseClient
+                            .Child("Details")
+                            .Child(toDeleteItem.mail.Replace(".", ""))
+                            .Child(detailSnapshot.Key)
+                            .DeleteAsync();
+
+                        // Удаляем деталь из локального списка
+                        details.Remove(detail);
+
+                        // Обновляем источник данных ListView
+                        detailsListView.ItemsSource = null;
+                        detailsListView.ItemsSource = details;
+
+                        // Выходим из цикла, так как деталь удалена
+                        break;
+                    }
+                }
+
+
+
+
+
+
+
+                details.Remove(toDeleteItem);
+
+
+                detailsListView.ItemsSource = null;
+                detailsListView.ItemsSource = details;
+            }
         }
 
     }
-
 }
 
     

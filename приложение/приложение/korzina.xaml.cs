@@ -136,14 +136,14 @@ namespace приложение
                             .Child(detailSnapshot.Key)
                             .DeleteAsync();
 
-                        // Удаляем деталь из локального списка
+                        
                         details.Remove(detail);
 
                         // Обновляем источник данных ListView
                         detailsListView.ItemsSource = null;
                         detailsListView.ItemsSource = details;
 
-                        // Выходим из цикла, так как деталь удалена
+                       
                         break;
                     }
                 }

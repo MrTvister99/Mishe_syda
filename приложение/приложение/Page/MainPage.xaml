@@ -29,7 +29,7 @@
                     HorizontalTextAlignment="Center" />
                     <Entry 
                     x:Name="passwordEntry"
-                    
+                    IsPassword="True"
                     WidthRequest="200"  
                     Placeholder="Введите пароль"
                     PlaceholderColor="Wheat"
